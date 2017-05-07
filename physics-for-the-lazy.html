@@ -60,14 +60,22 @@
                 var drop = new Particle(width * 0.5, height);
                 drop.move(Math.random() * 4 - 2, Math.random() * -2 - 15);
                 drops.push(drop);
+                setInterval(function () {
+                    drops.shift();
+                }, 6000);
             }
+
         }
         for (var i = 0; i < drops.length; i++) {
             drops[i].move(0, GRAVITY);
             drops[i].integrate();
             drops[i].bounce();
             drops[i].draw();
+
+
         }
+
+
     }
 </script>
 </body>
